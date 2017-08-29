@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+    登录
+{% endblock %}
+{% block content %}
+    <h1>登录</h1>
+    <div class="form-fields">
+        <form action="." method="post">
+            {% csrf_token %}
+            {{ login_form.as_p }}
+
+            <p class="center"><input type="submit" value="登录" class="btn btn-default"/></p>
+        </form>
+        <p>忘记密码？<a href="{% url 'account:password_reset' %}">找回密码</a> </p>
+        <p>没有帐号？<a href="{% url 'account:register' %}">点击注册</a> </p>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+    邮箱验证
+{% endblock %}
+{% block content %}
+    <h3>注册成功,验证邮箱</h3>
+    <form action="/account/register/register_confirm/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="user" value="{{ new_user.username }}" />
+        <h4 class="text ">请输入邮箱验证码,完成激活：</h4><br>
+        <input type="text" name="email_yzm" class="input-group-lg"/>
+        <input type="submit" value="提交" />
+    </form>
+{% endblock %}
